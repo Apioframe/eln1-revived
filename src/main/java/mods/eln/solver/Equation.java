@@ -58,6 +58,7 @@ public class Equation implements IValue, INBTTReady {
             list.add(new OperatorMapperFunc("rc", 2, RC.class));
             list.add(new OperatorMapperFunc("if", 3, If.class));
             list.add(new OperatorMapperFunc("scale", 5, Scale.class));
+            list.add(new OperatorMapperFunc("round", 2, Round.class));
             // Added mod here becuase % wasn't working. $%^&@#!
             list.add(new OperatorMapperFunc("mod", 2, Mod.class));
             list.add(new OperatorMapperBracket());
@@ -1024,6 +1025,26 @@ public class Equation implements IValue, INBTTReady {
                 out0v = out0.getValue(), out1v = out1.getValue();
 
             return (xv - in0v) / (in1v - in0v) * (out1v - out0v) + out0v;
+        }
+    }
+
+    public static class Round implements IOperator {
+        private IValue x, decimalDigits;
+
+        @Override
+        public void setOperator(IValue[] values) {
+            x = values[0];
+            decimalDigits = values[1];
+        }
+
+        @Override
+        public int getRedstoneCost() {
+            return 1;
+        }
+
+        @Override
+        public double getValue() {
+            return Math.round(x.getValue()*(Math.pow(10,decimalDigits.getValue())))/(Math.pow(10,decimalDigits.getValue()));
         }
     }
 
