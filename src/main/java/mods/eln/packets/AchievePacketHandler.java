@@ -14,6 +14,8 @@ public class AchievePacketHandler implements IMessageHandler<AchievePacket, IMes
             ctx.getServerHandler().playerEntity.triggerAchievement(Achievements.openGuide);
         } else if (message.text.equals("craft50VMacerator")) {
             ctx.getServerHandler().playerEntity.triggerAchievement(Achievements.craft50VMacerator);
+        } else if (message.text.equals("craft50VSocket")) {
+            ctx.getServerHandler().playerEntity.triggerAchievement(Achievements.craft50VSocket);
         } else {
             System.out.println("[ELN]: ELN Wiki Achievement Handler has received an invalid message/packet: " + message.text);
         }
