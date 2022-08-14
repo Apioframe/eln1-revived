@@ -1,11 +1,11 @@
 package li.cil.oc.api.event;
 
-import li.cil.oc.api.internal.Robot;
+import li.cil.oc.api.internal.Agent;
 import net.minecraft.entity.player.EntityPlayer;
 
 /**
  * Fired when an analyzer is used on a robot.
- * <p/>
+ * <br>
  * Use this to echo additional information for custom components.
  */
 public class RobotAnalyzeEvent extends RobotEvent {
@@ -14,8 +14,8 @@ public class RobotAnalyzeEvent extends RobotEvent {
      */
     public final EntityPlayer player;
 
-    public RobotAnalyzeEvent(Robot robot, EntityPlayer player) {
-        super(robot);
+    public RobotAnalyzeEvent(Agent agent, EntityPlayer player) {
+        super(agent);
         this.player = player;
     }
 }

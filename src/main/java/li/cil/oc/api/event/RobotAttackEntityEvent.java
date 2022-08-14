@@ -1,7 +1,7 @@
 package li.cil.oc.api.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import li.cil.oc.api.internal.Robot;
+import li.cil.oc.api.internal.Agent;
 import net.minecraft.entity.Entity;
 
 public class RobotAttackEntityEvent extends RobotEvent {
@@ -10,20 +10,20 @@ public class RobotAttackEntityEvent extends RobotEvent {
      */
     public final Entity target;
 
-    protected RobotAttackEntityEvent(Robot robot, Entity target) {
-        super(robot);
+    protected RobotAttackEntityEvent(Agent agent, Entity target) {
+        super(agent);
         this.target = target;
     }
 
     /**
      * Fired when a robot is about to attack an entity.
-     * <p/>
+     * <br>
      * Canceling this event will prevent the attack.
      */
     @Cancelable
     public static class Pre extends RobotAttackEntityEvent {
-        public Pre(Robot robot, Entity target) {
-            super(robot, target);
+        public Pre(Agent agent, Entity target) {
+            super(agent, target);
         }
     }
 
@@ -31,8 +31,8 @@ public class RobotAttackEntityEvent extends RobotEvent {
      * Fired after a robot has attacked an entity.
      */
     public static class Post extends RobotAttackEntityEvent {
-        public Post(Robot robot, Entity target) {
-            super(robot, target);
+        public Post(Agent agent, Entity target) {
+            super(agent, target);
         }
     }
 }
