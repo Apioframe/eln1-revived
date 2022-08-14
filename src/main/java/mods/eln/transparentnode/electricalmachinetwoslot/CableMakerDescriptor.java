@@ -22,8 +22,7 @@ public class CableMakerDescriptor extends ElectricalMachineTwoSlotDescriptor {
         obj = Eln.obj.getObj(modelName);
         if (obj != null) {
             main = obj.getPart("main");
-            //chute = obj.getPart("Chute_Cube.001");
-            chute = obj.getPart("move");
+            chute = obj.getPart("Chute_Cube.001");
         }
     }
 
