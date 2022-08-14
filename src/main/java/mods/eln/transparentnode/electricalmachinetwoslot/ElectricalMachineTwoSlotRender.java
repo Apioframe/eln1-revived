@@ -40,7 +40,7 @@ public class ElectricalMachineTwoSlotRender extends TransparentNodeElementRender
     public ElectricalMachineTwoSlotRender(TransparentNodeEntity tileEntity, final TransparentNodeDescriptor descriptor) {
         super(tileEntity, descriptor);
         this.descriptor = (ElectricalMachineTwoSlotDescriptor) descriptor;
-        inventory = new ElectricalMachineTwoSlotInventory(2 + this.descriptor.outStackCount, 64, this);
+        inventory = new ElectricalMachineTwoSlotInventory(3 + this.descriptor.outStackCount, 64, this);
         drawHandle = this.descriptor.newDrawHandle();
 
         if (this.descriptor.runningSound != null) {
