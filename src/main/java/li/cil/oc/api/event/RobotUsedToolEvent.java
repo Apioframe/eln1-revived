@@ -1,6 +1,6 @@
 package li.cil.oc.api.event;
 
-import li.cil.oc.api.internal.Robot;
+import li.cil.oc.api.internal.Agent;
 import net.minecraft.item.ItemStack;
 
 public class RobotUsedToolEvent extends RobotEvent {
@@ -11,8 +11,8 @@ public class RobotUsedToolEvent extends RobotEvent {
 
     protected double damageRate;
 
-    protected RobotUsedToolEvent(Robot robot, ItemStack toolBeforeUse, ItemStack toolAfterUse, double damageRate) {
-        super(robot);
+    protected RobotUsedToolEvent(Agent agent, ItemStack toolBeforeUse, ItemStack toolAfterUse, double damageRate) {
+        super(agent);
         this.toolBeforeUse = toolBeforeUse;
         this.toolAfterUse = toolAfterUse;
         this.damageRate = damageRate;
@@ -22,7 +22,7 @@ public class RobotUsedToolEvent extends RobotEvent {
      * The rate at which the used tool should lose durability, where one means
      * it loses durability at full speed, zero means it doesn't lose durability
      * at all.
-     * <p/>
+     * <br>
      * This value is in an interval of [0, 1].
      */
     public double getDamageRate() {
@@ -36,13 +36,13 @@ public class RobotUsedToolEvent extends RobotEvent {
      * experience upgrade, for example.
      */
     public static class ComputeDamageRate extends RobotUsedToolEvent {
-        public ComputeDamageRate(Robot robot, ItemStack toolBeforeUse, ItemStack toolAfterUse, double damageRate) {
-            super(robot, toolBeforeUse, toolAfterUse, damageRate);
+        public ComputeDamageRate(Agent agent, ItemStack toolBeforeUse, ItemStack toolAfterUse, double damageRate) {
+            super(agent, toolBeforeUse, toolAfterUse, damageRate);
         }
 
         /**
          * Set the rate at which the tool actually gets damaged.
-         * <p/>
+         * <br>
          * This will be clamped to an iterval of [0, 1].
          *
          * @param damageRate the new damage rate.
@@ -63,8 +63,8 @@ public class RobotUsedToolEvent extends RobotEvent {
      * durability is stored in the item's NBT tag.
      */
     public static class ApplyDamageRate extends RobotUsedToolEvent {
-        public ApplyDamageRate(Robot robot, ItemStack toolBeforeUse, ItemStack toolAfterUse, double damageRate) {
-            super(robot, toolBeforeUse, toolAfterUse, damageRate);
+        public ApplyDamageRate(Agent agent, ItemStack toolBeforeUse, ItemStack toolAfterUse, double damageRate) {
+            super(agent, toolBeforeUse, toolAfterUse, damageRate);
         }
     }
 }

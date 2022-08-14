@@ -1,20 +1,20 @@
 package li.cil.oc.api.event;
 
-import li.cil.oc.api.internal.Robot;
+import li.cil.oc.api.internal.Agent;
 
 /**
  * This event is fired when a robot tries to place a block and has no point of
  * reference, i.e. the place would have to be placed in "thin air". Per default
  * this fails (because players can't do this, either).
- * <p/>
+ * <br>
  * This is primarily intended for the 'Angel Upgrade', but it might be useful
  * for other upgrades, too.
  */
 public class RobotPlaceInAirEvent extends RobotEvent {
     private boolean isAllowed = false;
 
-    public RobotPlaceInAirEvent(Robot robot) {
-        super(robot);
+    public RobotPlaceInAirEvent(Agent agent) {
+        super(agent);
     }
 
     /**

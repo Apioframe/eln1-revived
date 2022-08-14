@@ -1,17 +1,17 @@
 package li.cil.oc.api.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import li.cil.oc.api.internal.Robot;
+import li.cil.oc.api.internal.Agent;
 import net.minecraft.world.World;
 
 public abstract class RobotBreakBlockEvent extends RobotEvent {
-    protected RobotBreakBlockEvent(Robot robot) {
-        super(robot);
+    protected RobotBreakBlockEvent(Agent agent) {
+        super(agent);
     }
 
     /**
      * Fired when a robot is about to break a block.
-     * <p/>
+     * <br>
      * Canceling this event will prevent the block from getting broken.
      */
     @Cancelable
@@ -31,8 +31,8 @@ public abstract class RobotBreakBlockEvent extends RobotEvent {
          */
         private double breakTime;
 
-        public Pre(Robot robot, World world, int x, int y, int z, double breakTime) {
-            super(robot);
+        public Pre(Agent agent, World world, int x, int y, int z, double breakTime) {
+            super(agent);
             this.world = world;
             this.x = x;
             this.y = y;
@@ -42,7 +42,7 @@ public abstract class RobotBreakBlockEvent extends RobotEvent {
 
         /**
          * Sets the time it should take the robot to break the block.
-         * <p/>
+         * <br>
          * Note that the robot will still break the block instantly, but the
          * robot's execution is paused for the specified amount of time.
          *
@@ -71,8 +71,8 @@ public abstract class RobotBreakBlockEvent extends RobotEvent {
          */
         public final double experience;
 
-        public Post(Robot robot, double experience) {
-            super(robot);
+        public Post(Agent agent, double experience) {
+            super(agent);
             this.experience = experience;
         }
     }
