@@ -151,7 +151,7 @@ public class ElectricalMathDescriptor extends SixNodeDescriptor implements IPlug
         y += 9;
         extender.add(new GuiLabel(6, y, "  pid(target,hit,p,i,d,minOut,maxOut)"));
         y += 9;
-
+        extender.add(new GuiLabel(6, y, "  round(value, decimalDigits)"));
         y += 9;
 //		list.add(new OperatorMapperFunc("sin", 1, Sin.class));
 //		list.add(new OperatorMapperFunc("cos", 1, Cos.class));
