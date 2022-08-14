@@ -23,12 +23,14 @@ public class ElectricalMachineTwoSlotContainer extends BasicContainer implements
     }
 
     private static Slot[] getSlot(IInventory inventory, ElectricalMachineTwoSlotDescriptor descriptor) {
-        Slot[] slots = new Slot[2 + descriptor.outStackCount];
+        Slot[] slots = new Slot[3 + descriptor.outStackCount];
         for (int idx = 0; idx < descriptor.outStackCount; idx++) {
             slots[idx] = new SlotWithSkin(inventory, idx, 130 - 32 + idx * 18, 12, SlotSkin.medium);
         }
         slots[descriptor.outStackCount] = new SlotWithSkin(inventory,
             descriptor.outStackCount, 8 + 36, 12, SlotSkin.medium);
+        slots[descriptor.outStackCount+2] = new SlotWithSkin(inventory,
+            descriptor.outStackCount + 2, 26, 12, SlotSkin.medium);
         slots[descriptor.outStackCount + 1] = new GenericItemUsingDamageSlot(inventory,
             descriptor.outStackCount + 1, 8, 12, 5,
             MachineBoosterDescriptor.class,
