@@ -1,14 +1,13 @@
 /**
- * This package provides interfaces to allow interacting with some components.
- * <p/>
- * These interfaces allow more specific interaction with some of OpenComputers'
- * components, which would otherwise require reflection or linking against the
- * mod itself.
+ * This package contains interfaces to be implemented on components.
+ * <br>
+ * This will allow OpenComputers to provide some more advanced integration
+ * with your components.
  */
 @cpw.mods.fml.common.API(
-    owner = API.ID_OWNER,
-    provides = "OpenComputersAPI|Component",
-    apiVersion = API.VERSION)
+        owner = API.ID_OWNER,
+        provides = "OpenComputersAPI|Component",
+        apiVersion = API.VERSION)
 package li.cil.oc.api.component;
 
 import li.cil.oc.api.API;

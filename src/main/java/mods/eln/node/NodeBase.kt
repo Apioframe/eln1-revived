@@ -28,6 +28,9 @@ import net.minecraft.entity.item.EntityItem
 import net.minecraft.inventory.IInventory
 import net.minecraft.init.Blocks
 import mods.eln.ghost.GhostBlock
+import mods.eln.i18n.I18N
+import mods.eln.i18n.I18N.TR_NAME
+import mods.eln.i18n.I18N.tr
 import mods.eln.misc.Direction
 import mods.eln.misc.Utils
 import mods.eln.sim.electrical.ElectricalConnection
@@ -154,7 +157,10 @@ abstract class NodeBase {
             }
             if (Eln.thermometerElement.checkSameItemStack(equipped)) {
                 val str = thermoMeterString(side)
-                if(str === null) return true;
+                if(str === null || str == "") {
+                    addChatMessage(entityPlayer, tr("eln_no_readings_temperature"))
+                    return true
+                };
                 addChatMessage(entityPlayer, str)
                 return true
             }
@@ -187,6 +193,15 @@ abstract class NodeBase {
                     entityPlayer.posZ,
                     entityPlayer.worldObj
                 ).play()
+
+                // That may help somebody, to be honest, for me figuring out these sounds costed 1.5 electrostations,
+                // that is not that annoying to not have it
+                addChatMessage( entityPlayer, when(snd) {
+                    beepError -> tr("eln_copy_error")
+                    beepDownloaded -> tr("eln_copy_write")
+                    beepUploaded -> tr("eln_copy_read")
+                    else -> ""
+                } )
                 println(String.format("NB.oBA: act %s data %s", act, equipped.tagCompound.toString()))
                 return true
             }

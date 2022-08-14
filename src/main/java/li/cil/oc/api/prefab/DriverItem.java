@@ -1,18 +1,18 @@
 package li.cil.oc.api.prefab;
 
-import li.cil.oc.api.driver.EnvironmentHost;
+import li.cil.oc.api.network.EnvironmentHost;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
  * If you wish to create item components such as the network card or hard drives
  * you will need an item driver.
- * <p/>
+ * <br>
  * This prefab allows creating a driver that works for a specified list of item
  * stacks (to support different items with the same id but different damage
  * values). It also takes care of creating and getting the tag compound on an
  * item stack to save data to or load data from.
- * <p/>
+ * <br>
  * You still have to specify your component's slot type and provide the
  * implementation for creating its environment, if any.
  *

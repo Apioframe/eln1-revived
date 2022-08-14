@@ -9,22 +9,22 @@ import java.util.Collections;
 /**
  * This API is intended for people who would like to implement custom computer
  * blocks or anything else hosting a computer.
- * <p/>
+ * <br>
  * It also allows registering new {@link li.cil.oc.api.machine.Architecture}s,
  * which are implementations of specific languages (e.g. assembler). The built-
  * in ones are available as static fields in this class.
- * <p/>
+ * <br>
  * Note that registration of architectures is optional and only intended as a
  * convenience feature to make architectures usable via the built-in CPUs.
- * <p/>
+ * <br>
  * Note that these methods should <em>not</em> be called in the pre-init phase,
- * since the {@link API#machine} may not have been initialized
+ * since the {@link li.cil.oc.api.API#machine} may not have been initialized
  * at that time. Only start calling these methods in the init phase or later.
  */
 public final class Machine {
     /**
      * Register an architecture that can be used to create new machines.
-     * <p/>
+     * <br>
      * Registering an architecture will make it possible to configure CPUs to
      * run that architecture. This allows providing architectures without
      * implementing a custom CPU item.
@@ -46,8 +46,20 @@ public final class Machine {
     }
 
     /**
+     * Get the name of the specified architecture.
+     *
+     * @param architecture the architecture to get the name for.
+     * @return the name of the specified architecture.
+     */
+    public static String getArchitectureName(Class<? extends Architecture> architecture) {
+        if (API.machine != null)
+            return API.machine.getArchitectureName(architecture);
+        return null;
+    }
+
+    /**
      * Creates a new machine for the specified host.
-     * <p/>
+     * <br>
      * You are responsible for calling update and save / load functions on the
      * machine for it to work correctly.
      *
@@ -69,5 +81,5 @@ public final class Machine {
      * The built-in Lua architecture. This will be set to the native Lua
      * implementation when possible, to the LuaJ fallback, otherwise.
      */
-    public static final Class<? extends Architecture> LuaArchitecture = null;
+    public static Class<? extends Architecture> LuaArchitecture = null;
 }
