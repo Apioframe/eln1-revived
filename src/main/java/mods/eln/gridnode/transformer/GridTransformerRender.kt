@@ -1,5 +1,6 @@
 package mods.eln.gridnode.transformer
 
+import mods.eln.Eln
 import mods.eln.gridnode.GridRender
 import mods.eln.misc.SlewLimiter
 import mods.eln.node.transparent.TransparentNodeDescriptor
@@ -12,9 +13,18 @@ class GridTransformerRender(entity: TransparentNodeEntity, descriptor: Transpare
     val desc = descriptor as GridTransformerDescriptor
     private var load = SlewLimiter(0.5f)
 
+
+
     init {
         addLoopedSound(object : LoopedSound("eln:Transformer", coordinate(), ISound.AttenuationType.LINEAR) {
             override fun getVolume() = Math.max(0f, (load.position - desc.minimalLoadToHum) / (1 - desc.minimalLoadToHum))
+        })
+        addLoopedSound(object : LoopedSound("eln:arc", coordinate(), ISound.AttenuationType.LINEAR) {
+            override fun getVolume() = desc.arcVolume
+            override fun getPitch(): Float {
+                return 0.5f
+            }
+            override fun getMaxDistance() = Eln.maxSoundDistance * 16
         })
     }
 

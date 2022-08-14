@@ -38,9 +38,11 @@ public class SoundServer {
 
             for (Object obj : server.getConfigurationManager().playerEntityList) {
                 EntityPlayerMP player = (EntityPlayerMP) obj;
-                if (player.dimension == p.world.provider.dimensionId && player.getDistance(p.x, p.y, p.z) < p.rangeMax + 2)
-                    ;
-                Utils.sendPacketToClient(bos, player);
+                if (player.dimension == p.world.provider.dimensionId && player.getDistance(p.x, p.y, p.z) < p.rangeMax + 2) {
+                    Utils.sendPacketToClient(bos, player);
+                }
+
+
             }
         } catch (IOException e) {
             e.printStackTrace();

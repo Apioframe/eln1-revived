@@ -1,5 +1,6 @@
 package mods.eln.sound
 
+import mods.eln.Eln
 import mods.eln.misc.Coordinate
 import net.minecraft.client.audio.ISound
 import net.minecraft.client.audio.ITickableSound
@@ -16,10 +17,14 @@ abstract class LoopedSound(val sample: String, val coord: Coordinate,
     override final fun canRepeat() = true
     override final fun getAttenuationType() = attentuationType
 
+
+
     override fun getPitch() = 1f
     override fun getVolume() = 1f
     override fun isDonePlaying() = !active
 
     override fun getRepeatDelay() = 0
     override fun update() {}
+
+    open fun getMaxDistance() = Eln.maxSoundDistance
 }

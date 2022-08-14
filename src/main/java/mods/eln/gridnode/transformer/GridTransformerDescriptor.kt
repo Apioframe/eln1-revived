@@ -11,6 +11,7 @@ import net.minecraftforge.client.IItemRenderer
 class GridTransformerDescriptor(name: String, obj: Obj3D, cableTexture: String, cableDescriptor: ElectricalCableDescriptor) : GridDescriptor(name, obj, GridTransformerElement::class.java, GridTransformerRender::class.java, cableTexture, cableDescriptor, 12) {
     val minimalLoadToHum = 0.1f
 
+    var arcVolume = 0.0f
     override fun rotationIsFixed(): Boolean {
         return true
     }

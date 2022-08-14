@@ -11,6 +11,9 @@ class GridTransformerThermalFailureProcess(element: GridTransformerElement) : IR
 
     var maxHeat = 0.0
 
+    private var baseRsPrimary = gridTransformerElement.primaryLoad.rs
+    private var baseRsSecondary = gridTransformerElement.secondaryLoad.rs
+
 
     fun doFailure() {
         doFailure = true
@@ -23,18 +26,26 @@ class GridTransformerThermalFailureProcess(element: GridTransformerElement) : IR
 
 
     override fun rootSystemPreStepProcess() {
-        println("its pre time!")
+       //println("its pre time!")
         if(doFailure) {
-            gridTransformerElement.primaryVoltageSource.u = gridTransformerElement.primaryVoltageSource.u * Math.random()
-           // gridTransformerElement.secondaryVoltageSource.u = gridTransformerElement.secondaryVoltageSource.u * Math.random()
+            if(Math.random() < 0.25) {
+                gridTransformerElement.primaryLoad.rs = baseRsPrimary
+                gridTransformerElement.secondaryLoad.rs = baseRsSecondary
+            } else {
+                gridTransformerElement.primaryLoad.rs += Math.random()*20
+                gridTransformerElement.secondaryLoad.rs += Math.random()*20
+            }
         }
     }
 
     override fun process(time: Double) {
-        println("processes")
+       // println("processes")
+
         if(gridTransformerElement.thermalLoad.t > maxHeat) {
             doFailure()
+            gridTransformerElement.desc.arcVolume = 1.0f
         } else {
+            gridTransformerElement.desc.arcVolume = 0f
             doFailure(false)
         }
     }

@@ -19,6 +19,7 @@ import mods.eln.sim.electrical.heater.ElectricalLoadHeatThermalLoad
 import mods.eln.sim.watchdogs.WorldExplosion
 import mods.eln.sim.watchdogs.WorldFailure
 import net.minecraft.util.Vec3
+import java.io.DataInputStream
 import java.io.DataOutputStream
 
 class GridTransformerElement(node: TransparentNode, descriptor: TransparentNodeDescriptor) : GridElement(node, descriptor, 8) {
@@ -65,9 +66,10 @@ class GridTransformerElement(node: TransparentNode, descriptor: TransparentNodeD
         slowProcessList.add(this)
     }
 
-    internal val failureProcess = GridTransformerThermalFailureProcess(this).apply {
-
+    val failureProcess = GridTransformerThermalFailureProcess(this).apply {
+        this.maxHeat = 110.0
         slowProcessList.add(this)
+
     }
 
     init {
@@ -83,6 +85,7 @@ class GridTransformerElement(node: TransparentNode, descriptor: TransparentNodeD
 
         // Publish load from time to time.
         slowProcessList.add(NodePeriodicPublishProcess(node, 1.0, 0.5))
+
     }
 
     override fun getConnectionMask(side: Direction, lrdu: LRDU): Int {
@@ -92,10 +95,12 @@ class GridTransformerElement(node: TransparentNode, descriptor: TransparentNodeD
     override fun disconnectJob() {
         super.disconnectJob()
         Eln.simulator.mna!!.removeProcess(interSystemProcess)
+        Eln.simulator.mna!!.removeProcess(failureProcess)
     }
 
     override fun connectJob() {
         Eln.simulator.mna!!.addProcess(interSystemProcess)
+        Eln.simulator.mna!!.addProcess(failureProcess)
         super.connectJob()
     }
 
@@ -138,7 +143,12 @@ class GridTransformerElement(node: TransparentNode, descriptor: TransparentNodeD
     override fun networkSerialize(stream: DataOutputStream) {
         super.networkSerialize(stream)
         stream.writeFloat((secondaryLoad.current / maxCurrent).toFloat())
+
     }
+
+    
+
+
 
 
 
