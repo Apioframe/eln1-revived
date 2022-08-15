@@ -32,12 +32,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ElectricalMachineSelectionElement extends TransparentNodeElement implements ElectricalStackMachineProcessObserver, IConfigurable {
     private final TransparentNodeElementInventory inventory;
-    AutoAcceptInventoryProxy booterAccepter;
 
     private final NbtElectricalLoad electricalLoad = new NbtElectricalLoad("electricalLoad");
     final Resistor electricalResistor = new Resistor(electricalLoad, null);
@@ -49,10 +49,11 @@ public class ElectricalMachineSelectionElement extends TransparentNodeElement im
     final ElectricalMachineSelectionDescriptor descriptor;
     public int inSlotId = 0;
 
-    public int inSlotTwoId = 2;
+    public ArrayList<Integer> inSlotIds = new ArrayList<Integer>();
+
     public final int outSlotId = 0;
 
-    private int boosterSlotId = 1;
+
 
 
 
@@ -61,12 +62,17 @@ public class ElectricalMachineSelectionElement extends TransparentNodeElement im
     public ElectricalMachineSelectionElement(TransparentNode transparentNode, TransparentNodeDescriptor descriptor) {
         super(transparentNode, descriptor);
         this.descriptor = (ElectricalMachineSelectionDescriptor) descriptor;
-        inSlotId += this.descriptor.outStackCount;
-        inSlotTwoId += this.descriptor.outStackCount;
-        boosterSlotId += this.descriptor.outStackCount;
-        inventory = new ElectricalMachineSelectionInventory(32, 64, this);
-        booterAccepter = new AutoAcceptInventoryProxy(inventory)
-            .acceptIfIncrement(this.descriptor.outStackCount + 1, 5, MachineBoosterDescriptor.class);
+
+        for(int i=0; i<6*2; i++) {
+            inSlotIds.add(this.descriptor.outStackCount+ i);
+        }
+
+
+
+
+
+        inventory = new ElectricalMachineSelectionInventory(6*2+4, 64, this);
+
 
         slowRefreshProcess = new ElectricalStackMachineProcess(
             inventory, inSlotId, outSlotId, this.descriptor.outStackCount,
@@ -146,10 +152,8 @@ public class ElectricalMachineSelectionElement extends TransparentNodeElement im
         ItemStack stack;
 
         int boosterCount = 0;
-        stack = getInventory().getStackInSlot(boosterSlotId);
-        if (stack != null) {
-            boosterCount = stack.stackSize;
-        }
+
+
         double speedUp = Math.pow(descriptor.boosterSpeedUp, boosterCount);
         slowRefreshProcess.setEfficiency(Math.pow(descriptor.boosterEfficiency, boosterCount));
         slowRefreshProcess.setSpeedUp(speedUp);
@@ -160,7 +164,7 @@ public class ElectricalMachineSelectionElement extends TransparentNodeElement im
 
     @Override
     public boolean onBlockActivated(EntityPlayer player, Direction side, float vx, float vy, float vz) {
-        return booterAccepter.take(player.getCurrentEquippedItem(), this, false, true);
+        return false;
     }
 
     public void networkSerialize(java.io.DataOutputStream stream) {

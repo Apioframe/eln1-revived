@@ -29,15 +29,17 @@ public class ElectricalMachineSelectionInventory extends TransparentNodeElementI
 
         switch (Direction.fromIntMinecraftSide(side)) {
             case YP:
-                return new int[]{machineElement.inSlotId};
-            case XP:
-                return new int[]{machineElement.inSlotTwoId};
-            default:
-                int[] slots = new int[machineElement.descriptor.outStackCount];
+                int slots[] = new int[6*2];
                 for (int idx = 0; idx < slots.length; idx++) {
-                    slots[idx] = idx + machineElement.outSlotId;
+                    slots[idx] = idx + machineElement.descriptor.outStackCount+1;
                 }
                 return slots;
+            default:
+                int[] slots2 = new int[machineElement.descriptor.outStackCount];
+                for (int idx = 0; idx < slots2.length; idx++) {
+                    slots2[idx] = idx + machineElement.outSlotId;
+                }
+                return slots2;
         }
     }
 
