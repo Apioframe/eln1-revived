@@ -134,6 +134,7 @@ import mods.eln.transparentnode.electricalantennarx.ElectricalAntennaRxDescripto
 import mods.eln.transparentnode.electricalantennatx.ElectricalAntennaTxDescriptor;
 import mods.eln.transparentnode.electricalfurnace.ElectricalFurnaceDescriptor;
 import mods.eln.transparentnode.electricalmachine.*;
+import mods.eln.transparentnode.electricalmachineselection.SpecialCrafterDescriptor;
 import mods.eln.transparentnode.electricalmachinetwoslot.CableMakerDescriptor;
 import mods.eln.transparentnode.festive.ChristmasTreeDescriptor;
 import mods.eln.transparentnode.festive.HolidayCandleDescriptor;
@@ -714,6 +715,7 @@ public class Eln {
         //registerFloodlight(68);
         registerFestive(69);
         registerFab(70);
+        registerSpecialCrafter(71);
 
 
 
@@ -3280,11 +3282,29 @@ public class Eln {
             subId = 0;
             name = TR_NAME(Type.NONE, "50V Cable Maker");
             CableMakerDescriptor desc = new CableMakerDescriptor(name,
-                "cableMaker50V", LVU, 200,// double nominalU,double nominalP,
+                "cableMaker50V", LVU, 400,// double nominalU,double nominalP,
                 LVU * 1.25,// double maximalU,
                 new ThermalLoadInitializer(80, -100, 10, 100000.0),// thermal,
                 lowVoltageCableT2Descriptor,// ElectricalCableDescriptor cable
                 cableMakerRecipes);
+
+            transparentNodeItem.addDescriptor(subId + (id << 6), desc);
+            desc.setRunningSound("eln:macerator");
+        }
+    }
+
+    private void registerSpecialCrafter(int id) {
+        int subId;
+        String name;
+        {
+            subId = 0;
+            name = TR_NAME(Type.NONE, "50V Special Crafter");
+            SpecialCrafterDescriptor desc = new SpecialCrafterDescriptor(name,
+                "WIPCube", LVU, 500,// double nominalU,double nominalP,
+                LVU * 1.25,// double maximalU,
+                new ThermalLoadInitializer(80, -100, 10, 100000.0),// thermal,
+                lowVoltageCableT2Descriptor,// ElectricalCableDescriptor cable
+                new RecipesList());
 
             transparentNodeItem.addDescriptor(subId + (id << 6), desc);
             desc.setRunningSound("eln:macerator");
