@@ -2,6 +2,8 @@
 ## Revival *attempt* by Bomber and Patriik
 ### If anyone wants to help but is having errors because the forge dependency doesn't exist, feel free to DM BomberPlayz#6873 on Discord because he has it.
 
+[You can track the progress here](https://github.com/orgs/V0xelTech/projects/1/)
+
 Sorry no badges for now
 
 Electrical Age (ELN) is a Minecraft Mod offering the ability to perform large-scale in-game electrical simulations.
