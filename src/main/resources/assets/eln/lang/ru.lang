@@ -439,7 +439,7 @@ Applicable_mathematical_operators\:=Допустимые математичес�
 Calculates_an_output_signal_from\n3_inputs_(A,_B,_C)_using_an_equation.=Высчитывает выходной сигнал\nна основе 3-х входов (A, B, C), при\nпомощи уравнения.
 
 # ./src/main/java/mods/eln/sixnode/electricalmath/ElectricalMathGui.java
-%1$_Redstone(s)_required=Требуется %1$ ед. редстоун(-а)
+%1$_Redstone_required=Требуется %1$ ед. редстоун(-а)
 Equation_required!=Требуется ввести уравнение\!
 Inputs_are=Входы
 Invalid_equation!=Неверное уравнение\!
