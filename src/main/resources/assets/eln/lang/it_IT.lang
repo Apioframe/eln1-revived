@@ -439,7 +439,7 @@ Applicable_mathematical_operators\:=Operatori matematici applicabili\:
 Calculates_an_output_signal_from\n3_inputs_(A,_B,_C)_using_an_equation.=Calcola un segnale in uscita da\n3 in ingresso(A, B, C) usando una\nequazione.
 
 # ./src/main/java/mods/eln/sixnode/electricalmath/ElectricalMathGui.java
-%1$_Redstone(s)_required=%1$ Pietrarossa richiesta/e
+%1$_Redstone_required=%1$ Pietrarossa richiesta/e
 Equation_required!=Equazione richiesta\!
 Inputs_are=Gli input sono
 Invalid_equation!=Equazione non valida\!

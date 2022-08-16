@@ -439,7 +439,7 @@ Applicable_mathematical_operators\:=适用于数学算子
 Calculates_an_output_signal_from\n3_inputs_(A,_B,_C)_using_an_equation.=用3个输入(A,B,C)值\n进行函数计算\n然后输出信号
 
 # ./src/main/java/mods/eln/sixnode/electricalmath/ElectricalMathGui.java
-%1$_Redstone(s)_required=需要%1$个红石粉
+%1$_Redstone_required=需要%1$个红石粉
 Equation_required!=需要方程式
 Inputs_are=输入是
 Invalid_equation!=无效方程式

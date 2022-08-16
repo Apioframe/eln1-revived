@@ -439,7 +439,7 @@ Applicable_mathematical_operators\:=Toepasbare wiskundige operators\:
 Calculates_an_output_signal_from\n3_inputs_(A,_B,_C)_using_an_equation.=Berekent een output signaal van\n3 inputs (A,B,C) door middel van een\nvergelijking.
 
 # ./src/main/java/mods/eln/sixnode/electricalmath/ElectricalMathGui.java
-%1$_Redstone(s)_required=%1$ Redstone(s) nodig
+%1$_Redstone_required=%1$ Redstone nodig
 Equation_required!=Vergelijking nodig\!
 Inputs_are=Inputs zijn
 Invalid_equation!=Ongeldige vergelijking

@@ -439,7 +439,7 @@ Applicable_mathematical_operators\:=Mögliche mathematische Operationen
 Calculates_an_output_signal_from\n3_inputs_(A,_B,_C)_using_an_equation.=Berechnet ein Ausgangssignal aus 3 \nEingängen (A, B, C) mit Hilfe einer Formel.
 
 # ./src/main/java/mods/eln/sixnode/electricalmath/ElectricalMathGui.java
-%1$_Redstone(s)_required=%1$ Redstone werden benötigt
+%1$_Redstone_required=%1$ Redstone werden benötigt
 Equation_required!=Formel benötigt\!
 Inputs_are=Eingänge sind
 Invalid_equation!=Fehlerhafte Formel\!
