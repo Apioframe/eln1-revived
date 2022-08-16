@@ -553,7 +553,7 @@ Equation=Equacao
 Input_voltages=Tensao de entrada
 
 # ./src/main/java/mods/eln/sixnode/electricalmath/ElectricalMathGui.java
-%1$_Redstone(s)_required=Requer %1$ Redstone(s)
+%1$_Redstone_required=Requer %1$ Redstone
 Equation_required!=Requer equacao!
 Inputs_are=Entradas
 Invalid_equation!=Equacao invalida!

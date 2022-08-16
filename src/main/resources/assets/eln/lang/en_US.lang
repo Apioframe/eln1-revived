@@ -572,7 +572,7 @@ Equation=Equation
 Input_voltages=Input voltages
 
 # ./src/main/java/mods/eln/sixnode/electricalmath/ElectricalMathGui.java
-%1$_Redstone(s)_required=%1$ Redstone(s) required
+%1$_Redstone_required=%1$ Redstone required
 Equation_required!=Equation required!
 Inputs_are=Inputs are
 Invalid_equation!=Invalid equation!
