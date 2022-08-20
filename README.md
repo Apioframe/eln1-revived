@@ -6,7 +6,7 @@
 
 Sorry no badges for now
 
-Electrical Age (ELN) is a Minecraft Mod offering the ability to perform large-scale in-game electrical simulations.
+Electrical Age: Revived (ELN) is a Minecraft Mod offering the ability to perform large-scale in-game electrical simulations.
 
 Look at the official project website [electrical-age.net](https://electrical-age.net/) and [the Wiki](http://wiki.electrical-age.net/) to get general information. More dedicated documentation on the way soon!
 
