@@ -2,7 +2,9 @@ package mods.eln.wiki;
 
 import mods.eln.gui.*;
 import mods.eln.misc.UtilsClient;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
 
 import static mods.eln.i18n.I18N.tr;
 
@@ -18,8 +20,8 @@ public class Default extends GuiScreenEln {
 
     @Override
     protected GuiHelper newHelper() {
-
-        return helper = new GuiHelper(this, 240, 166);
+        ScaledResolution scaledresolution = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth - 16, (int) (Minecraft.getMinecraft().displayHeight / 1.5));
+        return helper = new GuiHelper(this, scaledresolution.getScaledHeight(), scaledresolution.getScaledHeight());
     }
 
     protected GuiVerticalExtender extender;
@@ -50,5 +52,7 @@ public class Default extends GuiScreenEln {
         }
 
     }
+
+
 
 }

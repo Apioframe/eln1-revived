@@ -11,7 +11,8 @@ class DelayedDestruction(val dest: IDestructible, var tmout: Double): IProcess {
     override fun process(time: Double) {
         tmout -= time
         if(tmout <= 0.0) {
-            dest.destructImpl()
+            //dest.destructImpl()
+            Eln.simulator.addDestructible(dest)
             Eln.simulator.removeSlowProcess(this)
         }
     }
