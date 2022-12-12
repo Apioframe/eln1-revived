@@ -84,6 +84,8 @@ Use at your own risk and do map backup frequently and between mod updates.
 ## MAIN DEVELOPERS
 
 - **jrddunbr** (concepts, ideas, code)
+- **BomberPlayz** (concepts, ideas, code)
+- **PatriikPlays** (concepts, ideas, code)
 - **Caeleron** (concepts, MNA work, electrical)
 - **Dolu1990** (Code guru, concepts, some 3D models)
 - **Svein Ove Aas, aka. Baughn** (Code, some 3D models, concepts)
@@ -91,6 +93,7 @@ Use at your own risk and do map backup frequently and between mod updates.
 - **cm0x4D** (Sound engineer, code and 3D models/texturing, concepts)
 - **lambdaShade** (3D models/texturing/graphics maestro, concepts, some sounds and lines of code)
 - **metc** (Website/Wiki webmaster)
+
 
 ## MAIN CONTRIBUTORS
 
